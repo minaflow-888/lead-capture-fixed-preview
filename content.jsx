@@ -10,6 +10,7 @@ window.CASE_CONTENT = {
     nav: {
       title: "Lead Capture Automation",
       back: "Back to Portfolio",
+      shortBack: "Portfolio",
       languageLabel: "Choose language",
       themeDark: "Switch to light theme",
       themeLight: "Switch to dark theme"
@@ -22,6 +23,7 @@ window.CASE_CONTENT = {
       description: "I built a workflow that receives website enquiries, extracts the submitted information, validates the required fields, logs valid leads, notifies the team and sends an automatic confirmation reply.",
       workflowButton: "View the workflow",
       portfolioButton: "Back to Portfolio",
+      previewLabel: "Lead Capture workflow preview",
       nodes: [
         { label: "Capture", detail: "Webflow form received", icon: "inbox" },
         { label: "Parse", detail: "Name, email and message", icon: "file-text" },
@@ -53,10 +55,10 @@ window.CASE_CONTENT = {
     map: {
       eyebrow: "System map",
       title: "One connected lead capture flow",
-      lede: "Each stage receives the submission, extracts the required fields, validates them, logs the lead, notifies the team and sends a confirmation reply. A lead that fails validation does not continue through the normal successful route.",
+      lede: "Each stage receives the submission, extracts the required fields, validates them, logs the lead, notifies the team and sends a confirmation reply. A lead that fails validation does not continue through the standard success path.",
       hubTitle: "Lead Capture Automation",
       hubMeta: "1 MAKE.COM SCENARIO",
-      invalidLabel: "invalid → does not continue",
+      invalidLabel: "invalid → stops before follow-up",
       groups: [
         { id: "input", label: "Input", icon: "globe", chips: ["Webflow form", "submitted enquiry"] },
         { id: "capture", label: "Capture", icon: "inbox", chips: ["Make.com Mailhook", "complete email body"] },
@@ -74,7 +76,7 @@ window.CASE_CONTENT = {
       validTitle: "Valid submission",
       validText: "Continues to the log, notification and reply.",
       invalidTitle: "Incomplete or invalid",
-      invalidText: "Does not continue through the normal successful route.",
+      invalidText: "Does not continue through the standard success path.",
       stages: [
         { tag: "STAGE 1", title: "Capture", icon: "inbox", steps: ["Receives the Webflow submission through a Make.com Mailhook", "Receives the complete email body"] },
         { tag: "STAGE 2", title: "Parse", icon: "file-text", steps: ["Uses a Text Parser", "Extracts name, email and message"] },
@@ -91,7 +93,7 @@ window.CASE_CONTENT = {
       screenshotPending: "SCREENSHOT TO BE ADDED",
       viewLarger: "View larger",
       close: "Close enlarged screenshot",
-      note: "Validation is the key differentiator: a submission that fails the required-field check does not continue through the normal successful route.",
+      note: "Validation is the key differentiator: a submission that fails the required-field check stops before logging, notification and reply.",
       tabs: [
         { id: "full", label: "Full workflow", detail: "Full Lead Capture workflow — all five stages connected" },
         { id: "capture", label: "Capture & Parse", detail: "Webflow form → Mailhook → Text Parser" },
@@ -102,15 +104,15 @@ window.CASE_CONTENT = {
     quality: {
       eyebrow: "Why validation matters",
       title: "Capturing a message is not the same as validating a lead.",
-      lede: "A submission that fails the required-field check does not continue through the normal successful route.",
+      lede: "A submission that fails the required-field check does not continue through the standard success path.",
       flow: ["Submitted lead", "Parse & validate", "Valid or invalid"],
       incompleteTitle: "Incomplete submission",
       readyTitle: "Ready to process",
       incomplete: [
         "Missing name — the lead cannot be identified clearly",
         "Missing email — there is no address for follow-up or reply",
-        "Unusable email format — the message may fail",
-        "Should not continue through the normal successful route"
+        "Invalid email format — the confirmation reply may not be deliverable",
+        "Should not continue through the standard success path"
       ],
       ready: [
         "Name is present",
@@ -176,7 +178,7 @@ window.CASE_CONTENT = {
         "Add duplicate detection",
         "Strengthen email validation",
         "Add error logging and retry routes",
-        "Add lead source tracking",
+        "Expand lead-source tracking beyond the current Webflow source",
         "Add consent and privacy handling appropriate to the production form",
         "Add monitoring for failed notifications or replies"
       ],
@@ -220,18 +222,20 @@ window.CASE_CONTENT = {
     nav: {
       title: "Lead Capture Automation",
       back: "Tillbaka till portföljen",
+      shortBack: "Portfölj",
       languageLabel: "Välj språk",
       themeDark: "Byt till ljust tema",
       themeLight: "Byt till mörkt tema"
     },
     hero: {
       eyebrow: "Portföljdemonstration",
-      headingBefore: "Från webbformulär till ett ",
+      headingBefore: "Från en webbplatsförfrågan till ett ",
       headingAccent: "validerat, loggat och bekräftat",
       headingAfter: " lead.",
       description: "Jag byggde ett arbetsflöde som tar emot webbplatsförfrågningar, extraherar den inskickade informationen, validerar obligatoriska fält, loggar giltiga leads, meddelar teamet och skickar ett automatiskt bekräftelsesvar.",
       workflowButton: "Visa arbetsflödet",
       portfolioButton: "Tillbaka till portföljen",
+      previewLabel: "Förhandsvisning av arbetsflödet för leadhantering",
       nodes: [
         { label: "Ta emot", detail: "Webflow-formulär mottaget", icon: "inbox" },
         { label: "Tolka", detail: "Namn, e-post och meddelande", icon: "file-text" },
@@ -263,10 +267,10 @@ window.CASE_CONTENT = {
     map: {
       eyebrow: "Systemkarta",
       title: "Ett sammankopplat flöde för leadhantering",
-      lede: "Varje steg tar emot inskickningen, extraherar obligatoriska fält, validerar dem, loggar leadet, meddelar teamet och skickar ett bekräftelsesvar. Ett lead som inte klarar valideringen fortsätter inte genom den normala lyckade vägen.",
+      lede: "Varje steg tar emot inskickningen, extraherar obligatoriska fält, validerar dem, loggar leadet, meddelar teamet och skickar ett bekräftelsesvar. Ett lead som inte klarar valideringen stoppas före loggning, avisering och svar.",
       hubTitle: "Lead Capture Automation",
       hubMeta: "1 MAKE.COM-SCENARIO",
-      invalidLabel: "ogiltigt → fortsätter inte",
+      invalidLabel: "ogiltigt → stoppas",
       groups: [
         { id: "input", label: "Inmatning", icon: "globe", chips: ["Webflow-formulär", "inskickad förfrågan"] },
         { id: "capture", label: "Ta emot", icon: "inbox", chips: ["Make.com Mailhook", "hela e-posttexten"] },
@@ -284,7 +288,7 @@ window.CASE_CONTENT = {
       validTitle: "Giltig inskickning",
       validText: "Fortsätter till loggning, avisering och svar.",
       invalidTitle: "Ofullständig eller ogiltig",
-      invalidText: "Fortsätter inte genom den normala lyckade vägen.",
+      invalidText: "Fortsätter inte i det vanliga flödet för giltiga inskickningar.",
       stages: [
         { tag: "STEG 1", title: "Ta emot", icon: "inbox", steps: ["Tar emot Webflow-inskickningen via en Make.com Mailhook", "Tar emot hela e-posttexten"] },
         { tag: "STEG 2", title: "Tolka", icon: "file-text", steps: ["Använder en Text Parser", "Extraherar namn, e-post och meddelande"] },
@@ -296,12 +300,12 @@ window.CASE_CONTENT = {
     evidence: {
       eyebrow: "Bevis på arbetsflödet",
       title: "Riktiga skärmbilder ska dokumentera det fungerande Make.com-scenariot",
-      lede: "Arbetsflödet byggdes och testades med demonstrationsinskickningar. De slutliga skärmbilderna ska visa varje del av det riktiga scenariot utan mockups.",
+      lede: "Arbetsflödet byggdes och testades med testinskickningar. De slutliga skärmbilderna ska visa varje del av det riktiga scenariot utan mockups.",
       browserLabel: "make.com — Lead Capture Automation",
       screenshotPending: "SKÄRMBILD LÄGGS TILL",
       viewLarger: "Visa större",
       close: "Stäng förstorad skärmbild",
-      note: "Validering är den viktigaste skillnaden: en inskickning som inte klarar kontrollen av obligatoriska fält fortsätter inte genom den normala lyckade vägen.",
+      note: "Validering är den viktigaste skillnaden: en inskickning som inte klarar kontrollen av obligatoriska fält stoppas före loggning, avisering och svar.",
       tabs: [
         { id: "full", label: "Hela arbetsflödet", detail: "Hela Lead Capture-arbetsflödet — alla fem steg sammankopplade" },
         { id: "capture", label: "Ta emot & tolka", detail: "Webflow-formulär → Mailhook → Text Parser" },
@@ -312,15 +316,15 @@ window.CASE_CONTENT = {
     quality: {
       eyebrow: "Varför validering är viktig",
       title: "Att ta emot ett meddelande är inte samma sak som att validera ett lead.",
-      lede: "En inskickning som inte klarar kontrollen av obligatoriska fält fortsätter inte genom den normala lyckade vägen.",
+      lede: "En inskickning som inte klarar kontrollen av obligatoriska fält fortsätter inte i det vanliga flödet för giltiga inskickningar.",
       flow: ["Inskickat lead", "Tolka & validera", "Giltigt eller ogiltigt"],
       incompleteTitle: "Ofullständig inskickning",
       readyTitle: "Redo att behandlas",
       incomplete: [
         "Namn saknas — leadet kan inte identifieras tydligt",
         "E-post saknas — det finns ingen adress för uppföljning eller svar",
-        "Oanvändbart e-postformat — meddelandet kan misslyckas",
-        "Ska inte fortsätta genom den normala lyckade vägen"
+        "Ogiltigt e-postformat — bekräftelsesvaret kanske inte kan levereras",
+        "Ska inte fortsätta i det vanliga flödet för giltiga inskickningar"
       ],
       ready: [
         "Namn finns",
@@ -362,7 +366,7 @@ window.CASE_CONTENT = {
       final: "slutresultat",
       labels: ["inskickat", "mottaget", "tolkat", "validerat", "loggat", "teamet meddelat", "bekräftelse skickad"],
       testingTitle: "Teststatus",
-      testingText: "Huvudmodulerna och valideringsvägarna testades med demonstrationsinskickningar. Arbetsflödet driftsattes inte i en verklig kundmiljö."
+      testingText: "Huvudmodulerna och valideringsvägarna testades med testinskickningar. Arbetsflödet driftsattes inte i en verklig kundmiljö."
     },
     limitations: {
       eyebrow: "Ärligt utformat",
@@ -386,7 +390,7 @@ window.CASE_CONTENT = {
         "Lägg till dubblettkontroll",
         "Förstärk e-postvalideringen",
         "Lägg till felloggning och återförsök",
-        "Lägg till spårning av leadkälla",
+        "Utöka spårningen av leadkälla utöver den nuvarande Webflow-källan",
         "Lägg till samtyckes- och integritetshantering för produktionsformuläret",
         "Lägg till övervakning av misslyckade aviseringar eller svar"
       ],
@@ -412,7 +416,7 @@ window.CASE_CONTENT = {
     cta: {
       eyebrow: "Låt oss prata",
       title: "Söker ni någon som kan kartlägga, bygga och tydligt dokumentera praktiska arbetsflöden?",
-      description: "Jag söker praktik, arbetspraktik eller en junior möjlighet i Malmö eller Skåne där jag kan fortsätta lära mig och samtidigt bidra med praktiskt automationsarbete.",
+      description: "Jag söker en praktikplats, arbetspraktik eller juniorroll i Malmö eller Skåne där jag kan fortsätta lära mig och samtidigt bidra med praktiskt automationsarbete.",
       portfolio: "Tillbaka till portföljen",
       order: "Visa Order Handoff-fallstudien"
     },

@@ -23,7 +23,15 @@ function PageContent() {
       return undefined;
     }
 
-    elements.forEach((el) => el.classList.add('is-hidden'));
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const toObserve = elements.filter((el) => {
+      const rect = el.getBoundingClientRect();
+      const isAlreadyVisible = rect.top < viewportHeight * 0.94 && rect.bottom > 0;
+      if (isAlreadyVisible) return false;
+      el.classList.add('is-hidden');
+      return true;
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -31,11 +39,11 @@ function PageContent() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
 
-    elements.forEach((el) => observer.observe(el));
+    toObserve.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [lang]);
+  }, []);
 
   return (
     <div className="app-shell">

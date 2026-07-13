@@ -85,16 +85,24 @@ function SystemMap() {
 
       <div ref={mapRef} className="system-map system-map--desktop reveal-up">
         <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className="system-map__svg" aria-hidden="true">
+          <defs>
+            <marker id="flow-arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(96,165,250,.88)" />
+            </marker>
+            <marker id="flow-arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(229,165,54,.92)" />
+            </marker>
+          </defs>
           {copy.map.groups.map((group) => {
             const pos = MAP_LAYOUT[group.id];
             return <line key={group.id} className={`map-spoke${lit === group.id ? ' is-lit' : ''}`} x1={HUB_X} y1={HUB_Y} x2={pos.anchor[0]} y2={pos.anchor[1]} />;
           })}
-          <path className="map-flow-path" d="M 125 250 C 135 158, 190 112, 255 92" />
-          <path className="map-flow-path" d="M 440 92 C 520 58, 580 58, 660 92" />
-          <path className="map-flow-path" d="M 910 92 C 980 130, 1000 175, 972 245" />
-          <path className="map-flow-path" d="M 970 440 C 950 485, 905 510, 890 520" />
-          <path className="map-flow-path" d="M 640 548 C 540 585, 420 585, 315 548" />
-          <path className="map-invalid-path" d="M 867 300 C 820 266, 815 220, 852 174" />
+          <path className="map-flow-path" markerEnd="url(#flow-arrow-blue)" d="M 120 240 C 135 205, 195 178, 280 170" />
+          <path className="map-flow-path" markerEnd="url(#flow-arrow-blue)" d="M 450 105 C 515 76, 585 76, 650 105" />
+          <path className="map-flow-path" markerEnd="url(#flow-arrow-blue)" d="M 920 108 C 975 138, 997 188, 975 235" />
+          <path className="map-flow-path" markerEnd="url(#flow-arrow-blue)" d="M 972 355 C 985 408, 956 458, 900 475" />
+          <path className="map-flow-path" markerEnd="url(#flow-arrow-blue)" d="M 630 535 C 575 568, 505 568, 450 535" />
+          <path className="map-invalid-path" markerEnd="url(#flow-arrow-amber)" d="M 866 300 C 820 266, 815 220, 852 174" />
           <text x="720" y="238" className="map-invalid-label">{copy.map.invalidLabel}</text>
         </svg>
 

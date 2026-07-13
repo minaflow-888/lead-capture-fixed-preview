@@ -51,7 +51,7 @@ function NavBar() {
             icon={<HeroIcon name="arrow-left" size={15} />}
           >
             <span className="header-back__full">{copy.nav.back}</span>
-            <span className="header-back__short">Portfolio</span>
+            <span className="header-back__short">{copy.nav.shortBack}</span>
           </HeroButton>
         </div>
       </div>
@@ -88,7 +88,7 @@ function HeroPipeline() {
   }, [reduced]);
 
   return (
-    <div className="hero-pipeline reveal-up" aria-label="Lead Capture workflow preview">
+    <div className="hero-pipeline reveal-up" aria-label={copy.hero.previewLabel}>
       <div className="hero-pipeline__rail" aria-hidden="true"></div>
       {copy.hero.nodes.map((node, index) => {
         const stateClass = active === index ? ' is-active' : (active === -1 || index < active ? ' is-complete' : '');
