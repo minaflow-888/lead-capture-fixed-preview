@@ -39,13 +39,23 @@ function AppProvider({ children }) {
     document.body.dataset.theme = theme;
   }, [theme]);
 
+  // Lucide's CDN helper replaces icon DOM nodes after React renders them.
+  // A full page reload on language change avoids a React/Lucide DOM mismatch
+  // while keeping the selected language in localStorage.
+  const changeLanguage = React.useCallback((nextLang) => {
+    const normalized = nextLang === 'sv' ? 'sv' : 'en';
+    if (normalized === lang) return;
+    window.localStorage.setItem('lead-capture-language', normalized);
+    window.location.reload();
+  }, [lang]);
+
   const value = React.useMemo(() => ({
     lang,
-    setLang,
+    setLang: changeLanguage,
     theme,
     toggleTheme: () => setTheme((current) => current === 'dark' ? 'light' : 'dark'),
     copy,
-  }), [lang, theme, copy]);
+  }), [lang, theme, copy, changeLanguage]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

@@ -147,7 +147,7 @@ window.CASE_CONTENT = {
     },
     states: {
       eyebrow: "Workflow stages & testing",
-      title: "Every lead moves through one connected lifecycle",
+      title: "Every submission follows a clear, connected lifecycle",
       lede: "These are explanatory workflow stages — not stored database statuses — showing the journey from submission to confirmation.",
       invalid: "invalid",
       stops: "does not continue",
@@ -298,8 +298,8 @@ window.CASE_CONTENT = {
       ]
     },
     evidence: {
-      eyebrow: "Bevis på arbetsflödet",
-      title: "Riktiga skärmbilder ska dokumentera det fungerande Make.com-scenariot",
+      eyebrow: "Dokumentation av arbetsflödet",
+      title: "Riktiga skärmbilder från det fungerande Make.com-scenariot",
       lede: "Arbetsflödet byggdes och testades med testinskickningar. De slutliga skärmbilderna ska visa varje del av det riktiga scenariot utan mockups.",
       browserLabel: "make.com — Lead Capture Automation",
       screenshotPending: "SKÄRMBILD LÄGGS TILL",
@@ -352,14 +352,14 @@ window.CASE_CONTENT = {
       tools: [
         { label: "Webflow", icon: "globe", color: "#4353FF", description: "Tar emot den ursprungliga webbplatsförfrågan." },
         { label: "Make.com", icon: "workflow", color: "#2563EB", description: "Kopplar samman och styr arbetsflödets steg." },
-        { label: "Google Sheets", icon: "database", color: "#34A853", description: "Ger en enkel gemensam demonstrationslogg." },
+        { label: "Google Sheets", icon: "database", color: "#34A853", description: "Ger en enkel gemensam logg för demonstrationen." },
         { label: "Slack", icon: "message-square", color: "#E01E5A", description: "Meddelar teamet om ett nytt giltigt lead." },
         { label: "Outlook", icon: "mail", color: "#0078D4", description: "Skickar det automatiska bekräftelsesvaret." }
       ]
     },
     states: {
       eyebrow: "Arbetsflödessteg & testning",
-      title: "Varje lead rör sig genom en sammanhängande livscykel",
+      title: "Varje inskickning följer en tydlig och sammanhängande livscykel",
       lede: "Detta är förklarande arbetsflödessteg — inte lagrade databasstatusar — som visar resan från inskickning till bekräftelse.",
       invalid: "ogiltigt",
       stops: "fortsätter inte",
