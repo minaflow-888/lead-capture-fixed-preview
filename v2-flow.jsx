@@ -238,15 +238,53 @@ function ResourcesSection() {
         </article>
 
         <article className="panel-dark" style={cardStyle}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', background: '#05070c' }}>
-            <iframe
-              src="https://www.loom.com/embed/b3e7c53e29404906b5fa4b0644e320a5"
-              title={copy.demoTitle}
-              allow="fullscreen; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
-            ></iframe>
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              aspectRatio: '16 / 9',
+              background: 'linear-gradient(135deg, #07111f 0%, #111827 55%, #172554 100%)',
+              overflow: 'hidden',
+            }}
+          >
+            <a
+              href="https://www.loom.com/share/b3e7c53e29404906b5fa4b0644e320a5"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={copy.demoTitle}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '12px',
+                padding: '24px',
+                color: '#ffffff',
+                textDecoration: 'none',
+                textAlign: 'center',
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{
+                  width: '72px',
+                  height: '72px',
+                  borderRadius: '999px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'rgba(37, 99, 235, 0.95)',
+                  border: '1px solid rgba(255,255,255,0.22)',
+                  boxShadow: '0 12px 36px rgba(0,0,0,0.28)',
+                }}
+              >
+                <FlowIcon name="play" size={30} />
+              </span>
+              <strong style={{ fontSize: '1.05rem' }}>{copy.demoTitle}</strong>
+              <span style={{ opacity: 0.72 }}>Lead Capture Automation · Loom</span>
+            </a>
           </div>
           <div style={bodyStyle}>
             <h3 style={{ margin: '0 0 8px' }}>{copy.demoTitle}</h3>
