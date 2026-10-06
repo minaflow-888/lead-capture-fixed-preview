@@ -1,5 +1,5 @@
 // v2-flow.jsx
-// Connected workflow stages and screenshot placeholders.
+// Connected workflow stages, workflow evidence and project resources.
 
 const { Icon: FlowIcon, Shell: FlowShell, SectionHead: FlowSectionHead } = window;
 
@@ -145,4 +145,154 @@ function EvidenceSection() {
   );
 }
 
-Object.assign(window, { WorkflowSection, EvidenceSection });
+function ResourcesSection() {
+  const { lang } = window.useApp();
+  const isSv = lang === 'sv';
+
+  const copy = isSv
+    ? {
+        eyebrow: 'Projektmaterial',
+        title: 'Plan, demo och dokumentation',
+        lede: 'Här finns planeringsskissen, en videodemonstration av arbetsflödet och den fullständiga projektdokumentationen.',
+        sketchTitle: 'Planeringsskiss',
+        sketchText: 'Samma Lead Capture-logik som i den implementerade Make.com-lösningen, visualiserad steg för steg.',
+        sketchAlt: 'Planeringsskiss för Lead Capture Automation på svenska',
+        demoTitle: 'Se arbetsflödet i praktiken',
+        demoText: 'Videon visar det fungerande Lead Capture-flödet och hur de anslutna stegen beter sig tillsammans.',
+        loomLink: 'Öppna videon i Loom',
+        docsTitle: 'Projektdokumentation',
+        docsText: 'Dokumentationen beskriver logik, testning, begränsningar och planerade förbättringar. Båda språkversionerna finns tillgängliga.',
+        enDoc: 'Documentation — EN',
+        svDoc: 'Dokumentation — SV',
+      }
+    : {
+        eyebrow: 'Project resources',
+        title: 'Plan, demo and documentation',
+        lede: 'Explore the planning sketch, a video walkthrough of the workflow and the full project documentation.',
+        sketchTitle: 'Workflow planning sketch',
+        sketchText: 'The same Lead Capture logic used in the implemented Make.com solution, mapped step by step.',
+        sketchAlt: 'Lead Capture Automation workflow planning sketch in English',
+        demoTitle: 'Watch the workflow in action',
+        demoText: 'The video shows the working Lead Capture flow and how the connected stages behave together.',
+        loomLink: 'Open video in Loom',
+        docsTitle: 'Project documentation',
+        docsText: 'The documentation covers the logic, testing, limitations and planned improvements. Both language versions are available.',
+        enDoc: 'Documentation — EN',
+        svDoc: 'Dokumentation — SV',
+      };
+
+  const sketchSrc = isSv
+    ? 'assets/docs/lead-capture-workflow-sketch-sv.png'
+    : 'assets/docs/lead-capture-workflow-sketch-en.png';
+
+  const cardStyle = {
+    borderRadius: '22px',
+    overflow: 'hidden',
+    border: '1px solid rgba(148, 163, 184, 0.16)',
+  };
+
+  const bodyStyle = {
+    padding: '22px',
+  };
+
+  const linkStyle = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px',
+    minHeight: '46px',
+    padding: '0 18px',
+    borderRadius: '12px',
+    textDecoration: 'none',
+    fontWeight: 700,
+    border: '1px solid rgba(255,255,255,0.2)',
+    color: '#ffffff',
+    background: 'rgba(255,255,255,0.06)',
+  };
+
+  return (
+    <FlowShell tone="navy" grid pad="lg" id="resources">
+      <window.Glow x="12%" y="20%" size={560} opacity={0.10} />
+      <FlowSectionHead eyebrow={copy.eyebrow} title={copy.title} lede={copy.lede} />
+
+      <div
+        className="reveal-up"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
+          gap: '24px',
+          alignItems: 'start',
+        }}
+      >
+        <article className="panel-dark" style={cardStyle}>
+          <img
+            src={sketchSrc}
+            alt={copy.sketchAlt}
+            loading="lazy"
+            style={{ width: '100%', height: 'auto', display: 'block', background: '#f7f3ea' }}
+          />
+          <div style={bodyStyle}>
+            <h3 style={{ margin: '0 0 8px' }}>{copy.sketchTitle}</h3>
+            <p style={{ margin: 0, opacity: 0.82 }}>{copy.sketchText}</p>
+          </div>
+        </article>
+
+        <article className="panel-dark" style={cardStyle}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', background: '#05070c' }}>
+            <iframe
+              src="https://www.loom.com/embed/b3e7c53e29404906b5fa4b0644e320a5"
+              title={copy.demoTitle}
+              allow="fullscreen; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+            ></iframe>
+          </div>
+          <div style={bodyStyle}>
+            <h3 style={{ margin: '0 0 8px' }}>{copy.demoTitle}</h3>
+            <p style={{ margin: '0 0 16px', opacity: 0.82 }}>{copy.demoText}</p>
+            <a
+              href="https://www.loom.com/share/b3e7c53e29404906b5fa4b0644e320a5"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={linkStyle}
+            >
+              <FlowIcon name="external-link" size={16} /> {copy.loomLink}
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <article className="panel-dark reveal-up" style={{ ...cardStyle, marginTop: '24px' }}>
+        <div style={{ ...bodyStyle, display: 'grid', gap: '16px' }}>
+          <div>
+            <h3 style={{ margin: '0 0 8px' }}>{copy.docsTitle}</h3>
+            <p style={{ margin: 0, opacity: 0.82 }}>{copy.docsText}</p>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+            <a
+              href="assets/docs/Lead_Capture_Automation_Documentation_EN.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={linkStyle}
+            >
+              <FlowIcon name="file-text" size={16} /> {copy.enDoc}
+            </a>
+
+            <a
+              href="assets/docs/Lead_Capture_Automation_Documentation_SV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={linkStyle}
+            >
+              <FlowIcon name="file-text" size={16} /> {copy.svDoc}
+            </a>
+          </div>
+        </div>
+      </article>
+    </FlowShell>
+  );
+}
+
+Object.assign(window, { WorkflowSection, EvidenceSection, ResourcesSection });
