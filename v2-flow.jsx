@@ -189,10 +189,25 @@ function ResourcesSection() {
     borderRadius: '22px',
     overflow: 'hidden',
     border: '1px solid rgba(148, 163, 184, 0.16)',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
   };
 
   const bodyStyle = {
     padding: '22px',
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  };
+
+  const mediaStyle = {
+    position: 'relative',
+    width: '100%',
+    aspectRatio: '16 / 9',
+    overflow: 'hidden',
+    flexShrink: 0,
   };
 
   const linkStyle = {
@@ -221,16 +236,26 @@ function ResourcesSection() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
           gap: '24px',
-          alignItems: 'start',
+          alignItems: 'stretch',
         }}
       >
         <article className="panel-dark" style={cardStyle}>
-          <img
-            src={sketchSrc}
-            alt={copy.sketchAlt}
-            loading="lazy"
-            style={{ width: '100%', height: 'auto', display: 'block', background: '#f7f3ea' }}
-          />
+          <div style={{ ...mediaStyle, background: '#f7f3ea' }}>
+            <img
+              src={sketchSrc}
+              alt={copy.sketchAlt}
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                display: 'block',
+                objectFit: 'contain',
+                background: '#f7f3ea',
+              }}
+            />
+          </div>
           <div style={bodyStyle}>
             <h3 style={{ margin: '0 0 8px' }}>{copy.sketchTitle}</h3>
             <p style={{ margin: 0, opacity: 0.82 }}>{copy.sketchText}</p>
@@ -240,11 +265,8 @@ function ResourcesSection() {
         <article className="panel-dark" style={cardStyle}>
           <div
             style={{
-              position: 'relative',
-              width: '100%',
-              aspectRatio: '16 / 9',
+              ...mediaStyle,
               background: 'linear-gradient(135deg, #07111f 0%, #111827 55%, #172554 100%)',
-              overflow: 'hidden',
             }}
           >
             <a
@@ -293,7 +315,7 @@ function ResourcesSection() {
               href="https://www.loom.com/share/b3e7c53e29404906b5fa4b0644e320a5"
               target="_blank"
               rel="noopener noreferrer"
-              style={linkStyle}
+              style={{ ...linkStyle, marginTop: 'auto' }}
             >
               <FlowIcon name="external-link" size={16} /> {copy.loomLink}
             </a>
@@ -301,7 +323,7 @@ function ResourcesSection() {
         </article>
       </div>
 
-      <article className="panel-dark reveal-up" style={{ ...cardStyle, marginTop: '24px' }}>
+      <article className="panel-dark reveal-up" style={{ ...cardStyle, marginTop: '24px', height: 'auto' }}>
         <div style={{ ...bodyStyle, display: 'grid', gap: '16px' }}>
           <div>
             <h3 style={{ margin: '0 0 8px' }}>{copy.docsTitle}</h3>
